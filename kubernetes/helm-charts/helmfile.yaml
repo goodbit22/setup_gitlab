@@ -1,0 +1,30 @@
+repositories:
+  - name: gitlab 
+    url: https://charts.gitlab.io
+  - name: hashicorp
+    url:  https://helm.releases.hashicorp.com
+  - name:  aquasecurity
+    url:  https://aquasecurity.github.io/helm-charts/
+  
+releases:
+  - name: gitlab-runner 
+    chart:  gitlab/gitlab-runner 
+    namespace: gitlab
+    createNamespace: true
+    values:
+      - values.yaml
+
+  - name: vault 
+    chart:  hashicorp/vault
+    namespace: vault 
+    createNamespace: true
+    values:
+      - values.yaml
+
+    
+  - name: trivy 
+    chart:  aquasecurity/trivy
+    namespace: trivy
+    createNamespace: true
+    values:
+      - values.yaml
